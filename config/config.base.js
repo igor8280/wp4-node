@@ -8,9 +8,13 @@ const resolve = (dir) => {
 
 module.exports = {
 	// split to multiple entry points (src and vendor)
-	entry: {
-		bundle: '../src/index.js'
-	},
+	entry: [
+		'webpack-hot-middleware/client',
+		'../src/index.js'
+	],
+	// entry: {
+	// 	bundle: '../src/index.js'
+	// },
 	context: resolve('src'),
 	output: {
 		path: config.build.assetsRoot,

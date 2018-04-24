@@ -4,13 +4,13 @@ const loaders = {
 	rules: [
 		{
 			enforce: 'pre',
-			test: /\.jsx?$/,
+			test: /\.js$/,
 			exclude: /node_modules/,
-			loader: "eslint-loader"
+			loader: 'eslint-loader'
 		},
 		{
-			test: /\.jsx?$/,
-			loaders: [
+			test: /\.js$/,
+			loader: [
 				'babel-loader',
 			],
 			exclude: /node_modules/
