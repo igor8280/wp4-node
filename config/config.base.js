@@ -9,7 +9,7 @@ const resolve = (dir) => {
 module.exports = {
 	// split to multiple entry points (src and vendor)
 	entry: {
-		app: '../src/index.js'
+		bundle: '../src/index.js'
 	},
 	context: resolve('src'),
 	output: {
