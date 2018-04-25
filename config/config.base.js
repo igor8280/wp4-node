@@ -7,14 +7,6 @@ const resolve = (dir) => {
 };
 
 module.exports = {
-	// split to multiple entry points (src and vendor)
-	entry: [
-		'webpack-hot-middleware/client',
-		'../src/index.js'
-	],
-	// entry: {
-	// 	bundle: '../src/index.js'
-	// },
 	context: resolve('src'),
 	output: {
 		path: config.build.assetsRoot,
@@ -26,14 +18,10 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.json'],
 		modules: [
-			// resolve('src'),
 			resolve('node_modules')
 		],
 		alias: {
-			// 'vue$': 'vue/dist/vue.common.js',
 			'src': resolve('src')
-			// 'assets': resolve('src/assets'),
-			// 'components': resolve('src/components')
 		}
 	},
 	module: loaders

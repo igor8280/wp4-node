@@ -17,6 +17,7 @@ const webpackConfig = process.env.NODE_ENV === 'testing'
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port;
+
 // automatically open browser, if not set will be false
 const autoOpenBrowser = !!config.dev.autoOpenBrowser;
 // Define HTTP proxies to your custom API backend
@@ -36,22 +37,14 @@ const devMiddleware = require('webpack-dev-middleware')(compiler, {
 });
 
 const hotMiddleware = require('webpack-hot-middleware')(compiler, {
-	log: () => {}
+	log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
 });
 // force page reload when html-webpack-plugin template changes
-// compiler.plugin('compilation', (compilation) => {
-// 	compilation.plugin('html-webpack-plugin-after-emit', (data, cb) => {
-// 		hotMiddleware.publish({ action: 'reload' });
-// 		cb();
-// 	})
-// });
-const watching = compiler.watch({
-	// Example watchOptions
-	aggregateTimeout: 300,
-	poll: undefined
-}, (err, stats) => {
-	// Print watch/build result here...
-	console.log('stats', stats);
+compiler.plugin('compilation', (compilation) => {
+	compilation.plugin('html-webpack-plugin-after-emit', (data, cb) => {
+		hotMiddleware.publish({ action: 'reload' });
+		cb();
+	})
 });
 
 // proxy api requests
