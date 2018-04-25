@@ -16,7 +16,7 @@ module.exports = merge(baseWebpackConfig, {
 	mode: config.dev.env,
 	// cheap-module-eval-source-map is faster for development
 	// devtool: 'cheap-module-eval-source-map',
-	devtool: '#source-map',
+	devtool: 'cheap-module-eval-source-map',
 	plugins: [
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
