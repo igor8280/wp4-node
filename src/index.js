@@ -1,5 +1,7 @@
 import './style/test.css';
 import './style/font.css';
+import './style/test-s.scss';
+import './style/test-l.less';
 import image from './assets/img/test.jpeg';
 
 console.log('RADI!!!');
