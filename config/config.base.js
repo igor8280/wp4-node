@@ -1,3 +1,4 @@
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require('path');
 const config = require('./config');
 const loaders = require('./loaders');
@@ -23,6 +24,11 @@ module.exports = {
 		alias: {
 			'src': resolve('src')
 		}
+	},
+	optimization: {
+		minimizer: [
+			new OptimizeCSSAssetsPlugin({})
+		]
 	},
 	module: loaders
 };

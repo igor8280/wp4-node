@@ -12,8 +12,9 @@ const webpackConfig = require('./config.prod');
 const spinner = ora('building for production...');
 spinner.start();
 
-const assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory);
-console.log('asset path', assetsPath);
+// const assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory);
+const assetsPath = config.build.assetsRoot;
+
 shell.rm('-rf', assetsPath);
 shell.mkdir('-p', assetsPath);
 shell.config.silent = true;

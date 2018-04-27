@@ -27,9 +27,9 @@ const webpackConfig = merge(baseWebpackConfig, {
 	output: {
 		path: config.build.assetsRoot,
 		// filename: utils.assetsPath('js/[name].[chunkhash].js'),
-		filename: 'static/' + 'js/[name].[chunkhash].js',
+		filename: 'js/[name].[chunkhash].js',
 		// chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-		chunkFilename: 'static/' + 'js/[id].[chunkhash].js'
+		chunkFilename: 'js/[id].[chunkhash].js'
 	},
 	optimization: {
 		splitChunks: {
@@ -46,8 +46,8 @@ const webpackConfig = merge(baseWebpackConfig, {
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
 			// both options are optional
-			filename: "[name].css",
-			chunkFilename: "[id].css"
+			filename: "css/[name].[chunkhash].css",
+			chunkFilename: "css/[id].[chunkhash].css"
 		}),
 		// http://vuejs.github.io/vue-loader/en/workflow/production.html
 		// new webpack.DefinePlugin({
